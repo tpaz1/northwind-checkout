@@ -9,11 +9,13 @@ permissions:
   id-token: write
 jobs:
   scan-pull-request:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: jfrog/frogbot@v3
         env:
           JF_URL: ${{ vars.JF_URL }}
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JF_UPLOAD_PR_SECURITY_RESULTS_TO_VCS: "true"
         with:
           oidc-provider-name: frogbot-github-swampup
