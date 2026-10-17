@@ -20,4 +20,4 @@ jobs:
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JF_GIT_BASE_BRANCH: ${{ github.ref_name }}
         with:
-          oidc-provider-name: frogbot-github
+          oidc-provider-name: frogbot-github-swampup
